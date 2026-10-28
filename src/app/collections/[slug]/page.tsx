@@ -8,7 +8,7 @@ import { ArrowLeft, ArrowRight, WhatsApp } from "@/components/icons";
 import { Reveal } from "@/components/Reveal";
 import { CollectionCard, CtaBand, JsonLd, SectionHeading } from "@/components/sections";
 import { collections, getCollection } from "@/content/collections";
-import { site, whatsappLink } from "@/content/site";
+import { absoluteUrl, site, whatsappLink } from "@/content/site";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${c.name} furniture`,
     description: `${c.summary} ${c.kicker} at ${site.name}, Bopodi, Pune.`,
     alternates: { canonical: `/collections/${c.slug}` },
-    openGraph: { images: [{ url: c.cover.src.src, alt: c.cover.alt }] },
+    openGraph: { images: [{ url: absoluteUrl(c.cover.src.src), alt: c.cover.alt }] },
   };
 }
 

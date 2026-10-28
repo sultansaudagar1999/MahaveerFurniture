@@ -47,6 +47,11 @@ export const site = {
 
 export const fullAddress = `${site.address.line1}, ${site.address.line2}, ${site.address.city}, ${site.address.region} ${site.address.postalCode}`;
 
+/** Absolute URL for a root-relative path that already includes the base path (e.g. an imported image's src). */
+export function absoluteUrl(path: string) {
+  return new URL(path, site.url).href;
+}
+
 export function whatsappLink(message?: string) {
   const base = `https://wa.me/${site.whatsapp.number}`;
   return message ? `${base}?text=${encodeURIComponent(message)}` : base;

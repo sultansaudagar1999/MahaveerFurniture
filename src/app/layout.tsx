@@ -46,6 +46,9 @@ export const metadata: Metadata = {
     url: "/",
     title: `${site.name} — Furniture showroom in Bopodi, Pune`,
     description: site.description,
+    images: [
+      { url: `${site.url}/og.png`, width: 1200, height: 630, alt: `${site.name} — furniture showroom in Bopodi, Pune` },
+    ],
   },
   twitter: { card: "summary_large_image" },
   formatDetection: { telephone: false },

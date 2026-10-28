@@ -14,6 +14,15 @@ npm start          # serve the production build
 
 Copy `.env.example` to `.env.local` and set `NEXT_PUBLIC_SITE_URL` to the live domain before deploying. It is used for canonical URLs, the sitemap and Open Graph tags.
 
+## Deploy (GitHub Pages)
+
+Every push to `main` builds a static export and publishes it via `.github/workflows/deploy.yml`
+to https://sultansaudagar1999.github.io/MahaveerFurniture/. The workflow sets the
+`/MahaveerFurniture` base path; locally the site still runs at the root.
+
+If you later move to a custom domain, set the repository's Pages custom domain and remove
+`NEXT_PUBLIC_BASE_PATH` from the workflow.
+
 ## Where things live
 
 | What | File |

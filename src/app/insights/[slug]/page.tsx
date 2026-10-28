@@ -6,7 +6,7 @@ import { ArrowLeft } from "@/components/icons";
 import { Reveal } from "@/components/Reveal";
 import { ArticleCard, CtaBand, JsonLd } from "@/components/sections";
 import { articles, formatDate, getArticle, type Block } from "@/content/insights";
-import { site } from "@/content/site";
+import { absoluteUrl, site } from "@/content/site";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       type: "article",
       publishedTime: a.published,
-      images: [{ url: a.cover.src.src, alt: a.cover.alt }],
+      images: [{ url: absoluteUrl(a.cover.src.src), alt: a.cover.alt }],
     },
   };
 }
@@ -71,7 +71,7 @@ export default async function ArticlePage({ params }: Props) {
           headline: article.title,
           description: article.excerpt,
           datePublished: article.published,
-          image: `${site.url}${article.cover.src.src}`,
+          image: absoluteUrl(article.cover.src.src),
           author: { "@type": "Organization", name: site.name },
           publisher: { "@type": "Organization", name: site.name },
           mainEntityOfPage: `${site.url}/insights/${article.slug}`,
